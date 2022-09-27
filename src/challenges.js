@@ -20,9 +20,11 @@ function splitSentence(stringToSplit) {
 
 
 // Desafio 4
-function concatName() {
-  // seu código aqui
+function concatName(stringArray) {
+  let format = `${stringArray[stringArray.length - 1]}, ${stringArray[0]}`
+  return format
 }
+
 
 // Desafio 5
 function footballPoints() {
