@@ -50,15 +50,23 @@ function highestCount(numbers) {
   }
   
   return count
-
 }
 
-let a = [1, 2, 3, 4, 7, 4, 7, 7]
-console.log(highestCount(a));
 
 // Desafio 7
-function catAndMouse() {
-  // seu código aqui
+function catAndMouse(mouse, cat1, cat2) {
+  const dist1 = Math.abs(mouse - cat1);
+  const dist2 = Math.abs(mouse - cat2);
+  const closer = Math.min(dist1, dist2);
+
+  if (dist1 === dist2) {
+    return 'os gatos trombam e o rato foge'
+  }
+
+  if (closer === dist1) {
+    return 'cat1'
+  }
+  return 'cat2'
 }
 
 // Desafio 8
