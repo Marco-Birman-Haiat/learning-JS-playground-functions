@@ -79,7 +79,7 @@ function fizzBuzz(numbers) {
     if (numbers[index] % 3 === 0) {
       numberAnswer = 'fizz'
     }
-    
+
     if (numbers[index] % 5 === 0) {
       if (numberAnswer === 'fizz') {
         numberAnswer = numberAnswer.concat('Buzz')  
@@ -97,16 +97,83 @@ function fizzBuzz(numbers) {
   return fizzBuzzArray
 }
 
-let a = [3, 5, 15, 7, 8, 9]
-console.log(fizzBuzz(a));
+
 
 // Desafio 9
-function encode() {
-  // seu código aqui
+function encode(string) {
+  let incripted = ''
+  for (let index = 0; index < string.length; index += 1) {
+    let newCharacter = avaliaECodifica(string[index]);
+    incripted = incripted.concat(newCharacter);
+  }
+  return incripted
 }
-function decode() {
-  // seu código aqui
+
+let msg = 'teste agora ou nunca'
+console.log(msg);
+console.log(encode(msg));
+
+let msgx = encode(msg)
+let msgr = decode(msgx)
+
+console.log(msgr);
+
+
+function decode(string) {
+  let decripted = ''
+  for (let index = 0; index < string.length; index += 1) {
+    let newCharacter = avaliaEDecodifica(string[index]);
+    decripted = decripted.concat(newCharacter);
+  }
+  return decripted
 }
+
+/////Apoio Desafio 9
+function avaliaECodifica(a) {
+switch (a) {
+  case 'a':
+    return 1
+
+  case 'e':
+    return 2
+  
+  case 'i':
+    return 3
+
+  case 'o':
+    return 4
+  
+  case 'u':
+    return 5
+
+  default:
+    return a
+  }
+}
+
+function avaliaEDecodifica(a) {
+  console.log(a);
+  console.log(a === '1');
+  switch (a) {
+    case '1':
+      return 'a'
+  
+    case '2':
+      return 'e'
+    
+    case '3':
+      return 'i'
+  
+    case '4':
+      return 'o'
+    
+    case '5':
+      return 'u'
+  
+    default:
+      return a
+    }
+  }
 
 // Desafio 10
 function techList() {
