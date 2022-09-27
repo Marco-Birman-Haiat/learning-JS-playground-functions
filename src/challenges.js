@@ -18,7 +18,6 @@ function splitSentence(stringToSplit) {
   return splitArray;
 }
 
-
 // Desafio 4
 function concatName(stringArray) {
   const format = `${stringArray[stringArray.length - 1]}, ${stringArray[0]}`;
@@ -28,19 +27,15 @@ function concatName(stringArray) {
 // Desafio 5
 function footballPoints(wins, ties) {
   const totalPoints = wins * 3 + ties;
-  return totalPoints ;
+  return totalPoints;
 }
 
 // Desafio 6
 function highestCount(numbers) {
   let highest = 0;
-  let count = 0;
-  
+  let count = 0;  
   for (let index = 0; index < numbers.length; index += 1) {
-    if (index === 0) {
-      highest = numbers[index];
-      count = 1;
-    } else if (highest < numbers[index]) {
+    if (index === 0 || highest < numbers[index]) {
       highest = numbers[index];
       count = 1;
     } else if (highest === numbers[index]) {
@@ -70,30 +65,22 @@ function catAndMouse(mouse, cat1, cat2) {
 // Desafio 8
 function fizzBuzz(numbers) {
   let fizzBuzzArray = [];
-
+  
   for (let index = 0; index < numbers.length; index += 1) {
-    let numberAnswer = '';
+    numberAnswer = ''
 
-    if (numbers[index] % 3 === 0) {
-      numberAnswer = 'fizz'
-    }
-
-    if (numbers[index] % 5 === 0) {
-      if (numberAnswer === 'fizz') {
-        numberAnswer = numberAnswer.concat('Buzz'); 
-      } else {
-        numberAnswer = numberAnswer.concat('buzz');
-      }
-    }
-    
-    if (numberAnswer === '') {
+    if (numbers[index] % 3 === 0 && numbers[index] % 5 === 0) {
+      numberAnswer = 'fizzBuzz';
+    } else if (numbers[index] % 3 === 0) {
+      numberAnswer = 'fizz';
+    } else if (numbers[index] % 5 === 0) {
+      numberAnswer = 'buzz';
+    } else {
       numberAnswer = 'bug!';
     }
-
     fizzBuzzArray.push(numberAnswer);
   }
-  return fizzBuzzArray;
-}
+  return fizzBuzzArray; }
 
 // Desafio 9
 function encode(string) {
@@ -159,33 +146,25 @@ function avaliaEDecodifica(a) {
     }
   }
 
-
-
 // Desafio 10
 function techList(tech, responsable) {
-  
   if (tech.length === 0) {
     return 'Vazio!';
   }
-  
-  let orderedTech = tech.sort()
-
-  console.log(tech)
-  console.log(orderedTech)
+  let orderedTech = tech.sort();
 
   let list = [];
 
-  for (key in orderedTech) {
+  for (let key in orderedTech) {
     let techObject = {
       tech: orderedTech[key],
       name: responsable,
-    }
+    };
 
     list.push(techObject);
   }
   return list;
 }
-
 
 module.exports = {
   calcArea,
