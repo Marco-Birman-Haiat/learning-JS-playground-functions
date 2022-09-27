@@ -22,8 +22,6 @@ function generatePhoneNumber(phoneArray) {
   return formatedNumber;
 }
 
-let teste = [1, 2, 3, 4, 5, 6, 7, 8, 9, 2, 3]
-generatePhoneNumber(teste)
 
 ///Apoio desafio 11
 function numbersValidation(array) {
@@ -50,9 +48,29 @@ function maxOccurance(array) {
   return Math.max(...occuranceArray)
 }
 
+/////////////////////////////////////////////// ---- //////////////////////////////
 // Desafio 12
-function triangleCheck() {
-  // seu código aqui
+function triangleCheck(lineA, lineB, lineC) {
+  let sides = [lineA, lineB, lineC];
+  let perimeter = lineA + lineB + lineC;
+
+  for (let index = 0; index < sides.length; index += 1) {
+    if (sides[index] > perimeter - sides[index]) {
+      return false
+    }
+    let compareValues = []
+    for (let index2 = 0; index2 < sides.length; index2 += 1) {
+      if (index !== index2) {
+        compareValues.push(sides[index2]);
+      } 
+    }
+    let diff = Math.abs(compareValues[0] - compareValues[1]);
+
+    if (sides[index] < diff) {
+      return false
+    }
+  }
+  return true
 }
 
 // Desafio 13
