@@ -1,41 +1,40 @@
 // Desafio 1
 function compareTrue(parameter1, parameter2) {
   if (parameter1 === true && parameter2 === true) {
-    return true
+    return true;
   }
-  return false
+  return false;
 }
 
 // Desafio 2
 function calcArea(base, height) {
   const area = (base * height) / 2;
-  return area
+  return area;
 }
 
 // Desafio 3
 function splitSentence(stringToSplit) {
-  const splitArray = stringToSplit.split(" ");
-  return splitArray
+  const splitArray = stringToSplit.split(' ');
+  return splitArray;
 }
 
 
 // Desafio 4
 function concatName(stringArray) {
   const format = `${stringArray[stringArray.length - 1]}, ${stringArray[0]}`;
-  return format
+  return format;
 }
-
 
 // Desafio 5
 function footballPoints(wins, ties) {
   const totalPoints = wins * 3 + ties;
-  return totalPoints 
+  return totalPoints ;
 }
 
 // Desafio 6
 function highestCount(numbers) {
-  let highest = 0
-  let count = 0
+  let highest = 0;
+  let count = 0;
   
   for (let index = 0; index < numbers.length; index += 1) {
     if (index === 0) {
@@ -49,9 +48,8 @@ function highestCount(numbers) {
     }
   }
   
-  return count
+  return count;
 }
-
 
 // Desafio 7
 function catAndMouse(mouse, cat1, cat2) {
@@ -60,13 +58,13 @@ function catAndMouse(mouse, cat1, cat2) {
   const closer = Math.min(dist1, dist2);
 
   if (dist1 === dist2) {
-    return 'os gatos trombam e o rato foge'
+    return 'os gatos trombam e o rato foge';
   }
 
   if (closer === dist1) {
-    return 'cat1'
+    return 'cat1';
   }
-  return 'cat2'
+  return 'cat2';
 }
 
 // Desafio 8
@@ -82,22 +80,20 @@ function fizzBuzz(numbers) {
 
     if (numbers[index] % 5 === 0) {
       if (numberAnswer === 'fizz') {
-        numberAnswer = numberAnswer.concat('Buzz')  
+        numberAnswer = numberAnswer.concat('Buzz'); 
       } else {
-        numberAnswer = numberAnswer.concat('buzz')
+        numberAnswer = numberAnswer.concat('buzz');
       }
     }
     
     if (numberAnswer === '') {
-      numberAnswer = 'bug!'
+      numberAnswer = 'bug!';
     }
 
-    fizzBuzzArray.push(numberAnswer)
+    fizzBuzzArray.push(numberAnswer);
   }
-  return fizzBuzzArray
+  return fizzBuzzArray;
 }
-
-
 
 // Desafio 9
 function encode(string) {
@@ -108,16 +104,6 @@ function encode(string) {
   }
   return incripted
 }
-
-let msg = 'teste agora ou nunca'
-console.log(msg);
-console.log(encode(msg));
-
-let msgx = encode(msg)
-let msgr = decode(msgx)
-
-console.log(msgr);
-
 
 function decode(string) {
   let decripted = ''
@@ -152,8 +138,6 @@ switch (a) {
 }
 
 function avaliaEDecodifica(a) {
-  console.log(a);
-  console.log(a === '1');
   switch (a) {
     case '1':
       return 'a'
@@ -175,10 +159,33 @@ function avaliaEDecodifica(a) {
     }
   }
 
+
+
 // Desafio 10
-function techList() {
-  // seu código aqui
+function techList(tech, responsable) {
+  
+  if (tech.length === 0) {
+    return 'Vazio!'
+  }
+  
+  let list = []
+
+  for (key in tech) {
+    let techObject = {
+      tech: tech[key],
+      name: responsable,
+    }
+
+    list.push(techObject);
+  }
+  return list
 }
+
+let a = ['React', 'Jest', 'HTML', 'CSS']
+let b = 'Marco'
+
+console.log(techList(a, b));
+
 
 module.exports = {
   calcArea,
