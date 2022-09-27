@@ -165,26 +165,26 @@ function avaliaEDecodifica(a) {
 function techList(tech, responsable) {
   
   if (tech.length === 0) {
-    return 'Vazio!'
+    return 'Vazio!';
   }
   
-  let list = []
+  let orderedTech = tech.sort()
 
-  for (key in tech) {
+  console.log(tech)
+  console.log(orderedTech)
+
+  let list = [];
+
+  for (key in orderedTech) {
     let techObject = {
-      tech: tech[key],
+      tech: orderedTech[key],
       name: responsable,
     }
 
     list.push(techObject);
   }
-  return list
+  return list;
 }
-
-let a = ['React', 'Jest', 'HTML', 'CSS']
-let b = 'Marco'
-
-console.log(techList(a, b));
 
 
 module.exports = {
