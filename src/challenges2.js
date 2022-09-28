@@ -1,28 +1,4 @@
 // Desafio 11
-function generatePhoneNumber(phoneArray) {
-  if (phoneArray.length !== 11) {
-    return 'Array com tamanho incorreto.';
-  }
-  if (numbersValidation(phoneArray) === 0 || maxOccurance(phoneArray) >= 3) {
-    return 'não é possível gerar um número de telefone com esses valores';
-  }
-
-  const ddd = '' + phoneArray[0] + phoneArray[1]
-  let numberFirstPart = '';
-  for (let index = 2; index <= 6; index += 1) {
-    numberFirstPart = numberFirstPart.concat(phoneArray[index]); 
-  }
-
-  let numberSecondPart = '';
-  for (let index = 7; index <= 10; index += 1) {
-    numberSecondPart = numberSecondPart.concat(phoneArray[index]); 
-  }
-
-  const formatedNumber = `(${ddd}) ${numberFirstPart}-${numberSecondPart}`;
-  return formatedNumber;
-}
-
-
 ///Apoio desafio 11
 function numbersValidation(array) {
   for (let index = 0; index < array.length; index += 1) {
@@ -46,6 +22,30 @@ function maxOccurance(array) {
     occuranceArray.push(occurrences);
   } 
   return Math.max(...occuranceArray)
+}
+
+//Desafio 11 mesmo!!
+function generatePhoneNumber(phoneArray) {
+  if (phoneArray.length !== 11) {
+    return 'Array com tamanho incorreto.';
+  }
+  if (numbersValidation(phoneArray) === 0 || maxOccurance(phoneArray) >= 3) {
+    return 'não é possível gerar um número de telefone com esses valores';
+  }
+
+  const ddd = '' + phoneArray[0] + phoneArray[1]
+  let numberFirstPart = '';
+  for (let index = 2; index <= 6; index += 1) {
+    numberFirstPart = numberFirstPart.concat(phoneArray[index]); 
+  }
+
+  let numberSecondPart = '';
+  for (let index = 7; index <= 10; index += 1) {
+    numberSecondPart = numberSecondPart.concat(phoneArray[index]); 
+  }
+
+  const formatedNumber = `(${ddd}) ${numberFirstPart}-${numberSecondPart}`;
+  return formatedNumber;
 }
 
 /////////////////////////////////////////////// ---- //////////////////////////////
@@ -74,9 +74,24 @@ function triangleCheck(lineA, lineB, lineC) {
 }
 
 // Desafio 13
-function hydrate() {
-  // seu código aqui
+function hydrate(alcoholStatus) {
+  let func = /\d+/g;
+  let nums = alcoholStatus.match(func);
+  let sum = 0;
+
+  for (let index = 0; index < nums.length; index++) {
+    sum += parseInt(nums[index]);    
+  }
+
+  if (sum === 1) {
+    return '1 copo de água'
+  }
+  return `${sum} copos de água`
 }
+
+let a = '1 cerveza, depios 3 carlitos e 4'
+console.log(hydrate(a));
+
 
 module.exports = {
   generatePhoneNumber,
